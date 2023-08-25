@@ -21,4 +21,4 @@ echo "PWD $(pwd)"
 echo "ls $(ls -al)"
 
 echo "Running git-secrets"
-git secrets --scan
+git secrets --scan --no-ff -r
