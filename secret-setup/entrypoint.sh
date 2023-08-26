@@ -8,19 +8,24 @@ set -e
 # echo "Installing git & make"
 # apk add --no-cache git make
 
+cd $GITHUB_WORKSPACE
+echo "ls ${ls -al}"
+
 echo "Cloning git-secrets code from github"
 git clone https://github.com/awslabs/git-secrets.git
 
-echo "Installing git-secrets"
-cd git-secrets && make install && cd $GITHUB_WORKSPACE
+# echo "Installing git-secrets"
+# cd git-secrets && make install && 
+
+cd $GITHUB_WORKSPACE
 
 echo "Adding pattern to catch"
-git secrets --add-provider -- cat /secret-regex
+../git-secrets --add-provider -- cat ./secret-setup/secret-regex
 
 echo "PWD $(pwd)"
 echo "ls $(ls -al)"
 
-git secrets --scan
+../git-secrets/git secrets --scan
 # printenv
 
 # for commit in $(git rev-list ${{ github.base_ref }}..${{ github.head_ref }}); do
