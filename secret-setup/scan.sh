@@ -1,12 +1,6 @@
 #!/usr/bin/env sh
 
-set -e
-
-# echo "Installing bash"
-# apk add --no-cache bash
-
-# echo "Installing git & make"
-# apk add --no-cache git make
+echo "PWD $(pwd)"
 
 cd $GITHUB_WORKSPACE
 cd ..
