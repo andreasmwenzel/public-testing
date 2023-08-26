@@ -23,7 +23,11 @@ jobs:
         with: 
           fetch_depth: 0
       - run: bash secret-setup/install.sh -xe
-      - run: bash secret-setup/scan.sh -xe
+      - run: |
+          for commit in $(git rev-list ${{ github.event.before}}..${{ github.sha}}); do
+              git checkout $commit
+              bash secret-setup/scan.sh -xe
+          done
 
       # - name: scan
       #   uses: ./secret-setup
