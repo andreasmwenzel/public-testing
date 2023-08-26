@@ -20,6 +20,14 @@ jobs:
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v3
+        with: 
+          fetch_depth: 0
+      - run: bash secret-setup/install.sh -xe
+      - run: |
+          for commit in $(git rev-list HEAD ^${{ github.base_ref }}); do
+              git checkout $commit
+              bash secret-setup/scan.sh -xe
+          done
 
-      - name: scan
-        uses: ./secret-setup
+      # - name: scan
+      #   uses: ./secret-setup
