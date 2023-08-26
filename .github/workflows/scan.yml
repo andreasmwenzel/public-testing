@@ -23,7 +23,7 @@ jobs:
         with: 
           fetch_depth: 0
       - run: bash secret-setup/install.sh -xe
-      - run: base secret-setup/scan.sh -xe
+      - run: bash secret-setup/scan.sh -xe
 
       # - name: scan
       #   uses: ./secret-setup
