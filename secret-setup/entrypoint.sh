@@ -20,10 +20,10 @@ git secrets --add-provider -- cat /secret-regex
 echo "PWD $(pwd)"
 echo "ls $(ls -al)"
 
-printenv
+git secrets --scan
+# printenv
 
-for commit in $(git rev-list ${{ github.base_ref }}..${{ github.head_ref }}); do
-    git checkout $commit
-    echo "Running git-secrets"
-    git secrets --scan
-done
+# for commit in $(git rev-list ${{ github.base_ref }}..${{ github.head_ref }}); do
+#     git checkout $commit
+#     echo "Running git-secrets"
+# done
