@@ -24,7 +24,7 @@ jobs:
           fetch_depth: 0
       - run: bash secret-setup/install.sh -xe
       - run: |
-          for commit in $(git rev-list ${{ github.event.before}}..${{ github.sha}}); do
+          for commit in $(git rev-list ${{ github.base_ref }}..${{ github.head_ref }}); do
               git checkout $commit
               bash secret-setup/scan.sh -xe
           done
