@@ -9,6 +9,7 @@ set -e
 # apk add --no-cache git make
 
 cd $GITHUB_WORKSPACE
+cd ..
 echo "ls $(ls -al)"
 
 echo "Cloning git-secrets code from github"
