@@ -10,6 +10,8 @@ set -e
 
 cd $GITHUB_WORKSPACE
 cd ..
+
+echo "PWD $(pwd)"
 echo "ls $(ls -al)"
 
 echo "Cloning git-secrets code from github"
@@ -19,12 +21,15 @@ git clone https://github.com/awslabs/git-secrets.git
 # cd git-secrets && make install && 
 
 cd $GITHUB_WORKSPACE
+echo "PWD $(pwd)"
+echo "ls $(ls -al)"
 
 echo "Adding pattern to catch"
 ../git-secrets/git-secrets --add-provider -- cat ./secret-setup/secret-regex
 
-echo "PWD $(pwd)"
-echo "ls $(ls -al)"
+echo "installing into repo"
+../git-secrets/git-secrets --install
+
 
 ../git-secrets/git-secrets secrets --scan
 # printenv
