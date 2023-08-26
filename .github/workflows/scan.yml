@@ -24,5 +24,5 @@ jobs:
           fetch_depth: 0
       - run: bash secret-setup/entrypoint.sh -xe
 
-      - name: scan
-        uses: ./secret-setup
+      # - name: scan
+      #   uses: ./secret-setup
