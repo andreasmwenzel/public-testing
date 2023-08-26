@@ -30,8 +30,7 @@ echo "Adding pattern to catch"
 echo "installing into repo"
 ../git-secrets/git-secrets --install
 
-
-../git-secrets/git-secrets secrets --scan
+../git-secrets/git-secrets --scan
 # printenv
 
 # for commit in $(git rev-list ${{ github.base_ref }}..${{ github.head_ref }}); do
