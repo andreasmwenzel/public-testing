@@ -21,12 +21,12 @@ git clone https://github.com/awslabs/git-secrets.git
 cd $GITHUB_WORKSPACE
 
 echo "Adding pattern to catch"
-../git-secrets --add-provider -- cat ./secret-setup/secret-regex
+../git-secrets/git-secrets --add-provider -- cat ./secret-setup/secret-regex
 
 echo "PWD $(pwd)"
 echo "ls $(ls -al)"
 
-../git-secrets/git secrets --scan
+../git-secrets/git-secrets secrets --scan
 # printenv
 
 # for commit in $(git rev-list ${{ github.base_ref }}..${{ github.head_ref }}); do
